@@ -5,21 +5,22 @@ form = cgi.FieldStorage()
 print "Content-type: text/html"
 print
 
-print "<div style='margin:10;padding:10;border:1px solid blue;background-colour:lightgrey;width:50%;'>"
-
-if(form.getvalue('name') != None):
-    print "Name: %s<br /><br />" % form.getvalue('name')
-
-if(form.getvalue('family') != None):
-    print "Family: %s<br /><br />" % form.getvalue('family')
+if(form.length > 37):
+    print "<div style='margin:10;padding:10;border:1px solid blue;background-colour:lightgrey;width:50%;'>"
     
-if(form.getvalue('age') != None):
-    print "Age: %s<br /><br />" % form.getvalue('age')
-
-if(form.getvalue('hobby') != None):
-    print "Favourite Hobby: %s" % form.getvalue('hobby')
+    if(form.getvalue('name') != None):
+        print "<h4>Name: %s</h4>" % form.getvalue('name')
     
-print "</div>"
+    if(form.getvalue('family') != None):
+        print "<h4>Family: %s</h4>" % form.getvalue('family')
+        
+    if(form.getvalue('age') != None):
+        print "<h4>Age: %s</h4>" % form.getvalue('age')
+    
+    if(form.getvalue('hobby') != None):
+        print "<h4>Favourite Hobby: %s</h4>" % form.getvalue('hobby')
+        
+    print "</div>"
 
 print "<title>Test CGI</title>"
 
